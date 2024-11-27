@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,31 +9,182 @@
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            /* Background linear gradient dengan tema pink */
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
             height: 100vh;
             overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: white;
+            color: #333;
             position: relative;
         }
 
+        /* Surat */
+        .surat-container {
+            width: 300px;
+            height: 500px;
+            /* Ditambah untuk ruang kalimat */
+            background: rgba(255, 255, 255, 0.95);
+            /* Transparansi */
+            border: 2px solid #ffb6c1;
+            /* Warna border pink muda */
+            box-shadow: 0 4px 12px rgba(255, 182, 193, 0.3);
+            /* Bayangan dengan nuansa pink */
+            border-radius: 15px;
+            /* Radius lebih besar untuk tampilan lebih lembut */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+            transition: transform 0.5s ease;
+        }
+
+        .surat-container:hover {
+            transform: scale(1.02);
+        }
+
+        .surat-container::before {
+            content: 'SURAT';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 50px;
+            background: #ffc0cb;
+            /* Warna header pink */
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            text-align: center;
+            line-height: 50px;
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #fff;
+        }
+
+        .surat-content {
+            margin-top: 60px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .surat-content img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            /* Membuat gambar bulat */
+            object-fit: cover;
+            /* Memastikan gambar tidak terdistorsi */
+            border: 2px solid #ffb6c1;
+            /* Border kecil berwarna pink */
+        }
+
+        .surat-content p {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #ff69b4;
+            /* Warna teks pink */
+        }
+
+        /* Elemen untuk Menampilkan Kalimat Berbeda */
+        .message-display {
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            color: #ff69b4;
+            /* Warna teks pink */
+            min-height: 24px;
+            /* Ruang minimum untuk kalimat */
+        }
+
+        /* Tombol Balon */
+        .balon-button {
+            position: relative;
+            width: 100px;
+            height: 130px;
+            background-color: #FF69B4;
+            /* Warna balon pink cerah */
+            border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+            /* Bayangan balon */
+            user-select: none;
+            overflow: hidden;
+        }
+
+        .balon-button:active {
+            transform: scale(0.95);
+        }
+
+        .balon-button::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 20px;
+            background-color: #FF69B4;
+            /* Warna tali balon */
+            border-radius: 2px;
+        }
+
+        .balon-button span {
+            font-size: 1.2em;
+            color: #fff;
+            pointer-events: none;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Pesan Ulang Tahun */
         .container {
             text-align: center;
             z-index: 2;
+            display: none;
+            /* Sembunyikan awalnya */
+            color: #fff;
+            /* Warna teks putih */
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            /* Membuat gambar bulat */
+            object-fit: cover;
+            /* Memastikan gambar tidak terdistorsi */
+            border: 2px solid #ffb6c1;
+            /* Border kecil berwarna pink */
         }
 
         h1 {
             font-size: 3em;
             margin-bottom: 20px;
-            animation: fadeInDown 2s ease-out;
+            animation: fadeInDown 1s ease-out;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         p {
             font-size: 1.5em;
-            animation: fadeInUp 2s ease-out;
+            animation: fadeInUp 1s ease-out;
+            color: #ffe6f0;
+            /* Warna teks pink lembut */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         /* Animasi Confetti */
@@ -48,10 +200,112 @@
 
         .confetti-piece {
             position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: rgba(255, 255, 255, 0.8);
-            animation: fall linear infinite;
+            width: 8px;
+            height: 8px;
+            background-color: rgba(255, 182, 193, 0.8);
+            /* Warna confetti pink */
+            border-radius: 50%;
+            animation: fall 4s linear infinite;
+        }
+
+        .confetti-burst {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: rgba(255, 182, 193, 0.8);
+            /* Warna confetti pink */
+            border-radius: 50%;
+            animation: confettiBurst 1s forwards;
+        }
+
+        @keyframes confettiBurst {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) rotate(720deg);
+            }
+        }
+
+        /* Animasi Burst Balon pada Setiap Klik */
+        .burst-animation {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: transparent;
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        .burst-animation .particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #FF69B4;
+            /* Warna partikel pecah pink */
+            border-radius: 50%;
+            opacity: 0;
+            animation: particleBurst 1s forwards;
+        }
+
+        @keyframes particleBurst {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) scale(0.5);
+            }
+        }
+
+        /* Animasi Balon Naik */
+        .balon-naik {
+            position: absolute;
+            bottom: -100px;
+            background-color: #FF69B4;
+            /* Warna balon naik pink */
+            border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+            width: 60px;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-weight: bold;
+            animation: naik 5s ease-out forwards;
+            box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+            /* Bayangan balon naik */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .balon-naik::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 15px;
+            background-color: #FF69B4;
+            /* Warna tali balon */
+            border-radius: 2px;
+        }
+
+        @keyframes naik {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-1000px);
+                opacity: 0;
+            }
         }
 
         /* Keyframes untuk Animasi */
@@ -60,6 +314,7 @@
                 opacity: 0;
                 transform: translateY(-50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -71,6 +326,7 @@
                 opacity: 0;
                 transform: translateY(50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -85,24 +341,238 @@
         }
     </style>
 </head>
+
 <body>
 
-    <div class="container">
+    <!-- Surat dengan Tombol -->
+    <div class="surat-container" id="surat">
+        <div class="surat-content">
+            <!-- Gambar Surat (misalnya, ikon surat) -->
+            <img src="https://png.pngtree.com/png-vector/20230926/ourmid/pngtree-white-heart-outline-png-image_10147083.png" alt="Surat">
+            <!-- Elemen untuk Menampilkan Kalimat Berbeda -->
+            <div class="message-display" id="messageDisplay"></div>
+            <p>Pecahkan setiap balon untuk menemukan kejutannya.</p>
+            <!-- Tombol Balon -->
+            <div class="balon-button" id="balonButton">
+                <span id="clickCount">0</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pesan Ulang Tahun -->
+    <div class="container" id="pesan">
+        <!-- Gambar Ulang Tahun (misalnya, kue ulang tahun) -->
+        <img src="https://i.imgur.com/4AiXzf8.png" alt="Kue Ulang Tahun">
         <h1>🎉 Selamat Ulang Tahun! 🎂</h1>
         <p>Semoga hari istimewamu dipenuhi dengan kebahagiaan dan cinta.</p>
     </div>
 
+    <!-- Burst Animation -->
+    <div class="burst-animation" id="burstAnimation"></div>
+
+    <!-- Confetti -->
     <div class="confetti" id="confetti"></div>
 
     <script>
+        const balonButton = document.getElementById('balonButton');
+        const clickCountSpan = document.getElementById('clickCount');
+        const suratContainer = document.getElementById('surat');
+        const pesanContainer = document.getElementById('pesan');
+        const burstAnimation = document.getElementById('burstAnimation');
         const confettiContainer = document.getElementById('confetti');
-        const colors = ['#FFC700', '#FF0000', '#2E3192', '#41BBC7', '#73D2DE'];
+        const messageDisplay = document.getElementById('messageDisplay');
+        const colors = ['#FFC0CB', '#FF69B4', '#FF1493', '#DB7093', '#FFB6C1', '#FF69B4', '#C71585'];
+        let clickCount = 0;
+        const targetClicks = 22;
+
+        // Array Kalimat yang Akan Ditampilkan
+        const messages = [
+            "Terima kasih telah menjadi bagian dari hidupku!",
+            "Semoga semua impianmu tercapai.",
+            "Hari ini adalah hari yang istimewa!",
+            "Semoga sehat selalu menyertaimu.",
+            "Nikmati setiap momen dalam hidupmu.",
+            "Semoga bahagia selalu!",
+            "Tetap semangat dan terus berkarya.",
+            "Selamat merayakan hari lahirmu!",
+            "Semoga sukses selalu menyertai.",
+            "Teruslah bersinar seperti bintang.",
+            "Semoga cinta selalu ada di sekitarmu.",
+            "Jangan pernah berhenti bermimpi.",
+            "Semoga hari-harimu penuh kebahagiaan.",
+            "Teruslah menjadi pribadi yang luar biasa.",
+            "Semoga tahun ini menjadi tahun terbaikmu.",
+            "Selamat menikmati hari spesialmu!",
+            "Semoga cinta dan kebahagiaan selalu bersamamu.",
+            "Tetap rendah hati dan selalu bersyukur.",
+            "Semoga hari-harimu selalu cerah.",
+            "Terima kasih atas segala kebaikanmu.",
+            "Semoga selalu diberkati dan dilindungi.",
+            "Selamat ulang tahun, semoga hari ini luar biasa!"
+        ];
+
+        let currentMessageIndex = 0; // Indeks untuk kalimat saat ini
+
+        balonButton.addEventListener('click', () => {
+            if (clickCount < targetClicks) {
+                clickCount++;
+                clickCountSpan.textContent = clickCount;
+                createConfettiBurst(); // Animasi confetti pada setiap klik
+                createConfettiBurstAtMessage(); // Animasi confetti di pesan
+                displayMessage(); // Menampilkan kalimat berbeda
+                if (clickCount === targetClicks) {
+                    burstBalon();
+                }
+            }
+        });
+
+        function createConfettiBurst() {
+            // Mendapatkan posisi balonButton
+            const buttonRect = balonButton.getBoundingClientRect();
+            const centerX = buttonRect.left + buttonRect.width / 2;
+            const centerY = buttonRect.top + buttonRect.height / 2;
+
+            const numConfetti = 30; // Jumlah confetti per burst
+
+            for (let i = 0; i < numConfetti; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti-burst');
+
+                // Posisi awal confetti di tengah balonButton
+                confetti.style.left = `${centerX}px`;
+                confetti.style.top = `${centerY}px`;
+
+                // Random arah dan jarak
+                const angle = Math.random() * 2 * Math.PI;
+                const distance = Math.random() * 150; // Jarak pecah
+                const tx = distance * Math.cos(angle);
+                const ty = distance * Math.sin(angle);
+                confetti.style.setProperty('--tx', `${tx}px`);
+                confetti.style.setProperty('--ty', `${ty}px`);
+
+                // Random durasi animasi
+                const duration = 1 + Math.random() * 0.5; // 1s to 1.5s
+                confetti.style.animationDuration = `${duration}s`;
+
+                // Variasi warna
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+                confettiContainer.appendChild(confetti);
+
+                // Hapus confetti setelah animasi selesai
+                confetti.addEventListener('animationend', () => {
+                    confetti.remove();
+                });
+            }
+        }
+
+        function createConfettiBurstAtMessage() {
+            // Mendapatkan posisi messageDisplay
+            const messageRect = messageDisplay.getBoundingClientRect();
+            const centerX = messageRect.left + messageRect.width / 2;
+            const centerY = messageRect.top + messageRect.height / 2;
+
+            const numConfetti = 20; // Jumlah confetti per burst di pesan
+
+            for (let i = 0; i < numConfetti; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti-burst');
+
+                // Posisi awal confetti di tengah messageDisplay
+                confetti.style.left = `${centerX}px`;
+                confetti.style.top = `${centerY}px`;
+
+                // Random arah dan jarak
+                const angle = Math.random() * 2 * Math.PI;
+                const distance = Math.random() * 100; // Jarak pecah
+                const tx = distance * Math.cos(angle);
+                const ty = distance * Math.sin(angle);
+                confetti.style.setProperty('--tx', `${tx}px`);
+                confetti.style.setProperty('--ty', `${ty}px`);
+
+                // Random durasi animasi
+                const duration = 0.8 + Math.random() * 0.5; // 0.8s to 1.3s
+                confetti.style.animationDuration = `${duration}s`;
+
+                // Variasi warna
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+                confettiContainer.appendChild(confetti);
+
+                // Hapus confetti setelah animasi selesai
+                confetti.addEventListener('animationend', () => {
+                    confetti.remove();
+                });
+            }
+        }
+
+        function burstBalon() {
+            // Meletuskan balon utama
+            balonButton.style.display = 'none';
+            // Menampilkan animasi meletus
+            burstAnimation.style.display = 'block';
+            generateBurstParticles();
+
+            // Setelah animasi meletus selesai, tampilkan balon naik dan pesan
+            setTimeout(() => {
+                burstAnimation.style.display = 'none';
+                showBalloons();
+                showPesan();
+                startConfetti();
+            }, 1000); // Delay untuk animasi burst
+        }
+
+        function generateBurstParticles() {
+            const numParticles = 50; // Jumlah partikel dalam burst utama
+            for (let i = 0; i < numParticles; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                // Random direction and distance
+                const angle = Math.random() * 2 * Math.PI;
+                const distance = Math.random() * 150;
+                const tx = distance * Math.cos(angle) + 'px';
+                const ty = distance * Math.sin(angle) + 'px';
+                particle.style.setProperty('--tx', tx);
+                particle.style.setProperty('--ty', ty);
+                // Random delay dan durasi
+                const delay = Math.random() * 0.5; // hingga 0.5 detik
+                const duration = 0.7 + Math.random() * 0.5; // 0.7s to 1.2s
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                // Variasi warna
+                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                burstAnimation.appendChild(particle);
+
+                // Hapus particle setelah animasi selesai
+                particle.addEventListener('animationend', () => {
+                    particle.remove();
+                });
+            }
+        }
+
+        function displayMessage() {
+            if (currentMessageIndex < messages.length) {
+                messageDisplay.textContent = messages[currentMessageIndex];
+                currentMessageIndex++;
+            } else {
+                // Jika sudah mencapai akhir array, bisa direset atau menampilkan pesan default
+                messageDisplay.textContent = "Semoga harimu menyenangkan!";
+                // Atau reset untuk memulai kembali
+                // currentMessageIndex = 0;
+            }
+        }
+
+        function showPesan() {
+            // Tampilkan pesan ucapan ulang tahun
+            pesanContainer.style.display = 'flex';
+        }
 
         function createConfettiPiece() {
             const confetti = document.createElement('div');
             confetti.classList.add('confetti-piece');
             confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
             confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.top = Math.random() * 100 + 'vh'; /* Posisi acak */
             confetti.style.animationDuration = 3 + Math.random() * 2 + 's';
             confetti.style.opacity = Math.random();
             confettiContainer.appendChild(confetti);
@@ -113,9 +583,38 @@
             });
         }
 
-        // Buat confetti setiap 100ms
-        setInterval(createConfettiPiece, 100);
+        function startConfetti() {
+            // Buat confetti setiap 100ms
+            setInterval(createConfettiPiece, 100);
+        }
+
+        function showBalloons() {
+            for (let i = 0; i < 22; i++) {
+                // Mengatur delay random antara 0 dan 2000ms (2 detik)
+                const delay = Math.random() * 2000;
+                setTimeout(() => {
+                    const balon = document.createElement('div');
+                    balon.classList.add('balon-naik');
+                    balon.textContent = '22';
+                    balon.style.left = Math.random() * 100 + 'vw';
+                    balon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    // Mengatur ukuran balon secara acak sedikit untuk variasi
+                    const size = 60 + Math.random() * 20; // 60px to 80px
+                    balon.style.width = `${size}px`;
+                    balon.style.height = `${size * 1.5}px`;
+                    // Mengatur animasi naik dengan delay berbeda
+                    balon.style.animationDelay = `${Math.random() * 1}s`;
+                    document.body.appendChild(balon);
+
+                    // Hapus balon setelah animasi selesai
+                    balon.addEventListener('animationend', () => {
+                        balon.remove();
+                    });
+                }, delay);
+            }
+        }
     </script>
 
 </body>
+
 </html>
