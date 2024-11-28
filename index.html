@@ -7,12 +7,16 @@
     <title>Selamat Ulang Tahun!</title>
     <link rel="icon" href="https://cdn-0.emojis.wiki/emoji-pics/mozilla/birthday-cake-mozilla.png" type="image/png">
     <style>
+        html, body {
+            height: 100%; /* Pastikan elemen html dan body mengambil seluruh tinggi layar */
+            overflow: hidden; /* Menonaktifkan scroll */
+        }
+
         body {
             margin: 0;
             padding: 0;
             /* Background linear gradient dengan tema pink */
             background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-            height: 100vh;
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -173,7 +177,7 @@
         }
 
         h1 {
-            font-size: 2em;
+            font-size: 1.5em;
             margin-bottom: 20px;
             animation: fadeInDown 1s ease-out;
             color: #fff;
@@ -309,7 +313,7 @@
         }
 
         h1 {
-            font-size: 2em;
+            font-size: 1.5em;
             margin-top: 20px;
         }
 
