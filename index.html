@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selamat Ulang Tahun!</title>
+    <link rel="icon" href="https://cdn-0.emojis.wiki/emoji-pics/mozilla/birthday-cake-mozilla.png" type="image/png">
     <style>
         body {
             margin: 0;
@@ -296,6 +297,32 @@
             border-radius: 2px;
         }
 
+        #pesan {
+            padding-left: 20px;
+            padding-right: 20px;
+            max-width: 800px;
+            /* Menambahkan lebar maksimal untuk menghindari konten terlalu lebar */
+            margin: 0 auto;
+            /* Membuat konten di tengah halaman */
+            text-align: center;
+            /* Menambahkan penataan teks agar lebih rapi */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #fff;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
         @keyframes naik {
             0% {
                 transform: translateY(0);
@@ -348,7 +375,8 @@
     <div class="surat-container" id="surat">
         <div class="surat-content">
             <!-- Gambar Surat (misalnya, ikon surat) -->
-            <img src="https://png.pngtree.com/png-vector/20230926/ourmid/pngtree-white-heart-outline-png-image_10147083.png" alt="Surat">
+            <img src="https://png.pngtree.com/png-vector/20230926/ourmid/pngtree-white-heart-outline-png-image_10147083.png"
+                alt="Surat">
             <!-- Elemen untuk Menampilkan Kalimat Berbeda -->
             <div class="message-display" id="messageDisplay"></div>
             <p>Pecahkan setiap balon untuk menemukan kejutannya.</p>
@@ -364,7 +392,14 @@
         <!-- Gambar Ulang Tahun (misalnya, kue ulang tahun) -->
         <img src="https://raw.githubusercontent.com/mhariss25/HBD/refs/heads/HBD/img.jpg" alt="Kue Ulang Tahun">
         <h1>🎉 Selamat Ulang Tahun! 🎂</h1>
-        <p>Semoga hari istimewamu dipenuhi dengan kebahagiaan dan cinta.</p>
+        <p>
+            Selamat ulang tahun yang ke-22, Adek sayang! Barakallah fii umrik, semoga Allah selalu memberikan berkah,
+            kesehatan, dan kebahagiaan di setiap langkah hidup Adek, tahun ini dan seterusnya. Semoga Adek terus jadi
+            wanita yang sholehah, penuh kasih sayang, dan selalu diberkahi. Mas bersyukur bisa ada di perjalanan hidup
+            Adek, tumbuh bareng, dan ngelewatin setiap momen. Semoga tahun ini dan ke depannya Adek semakin dekat dengan
+            impian dan kebahagiaan, dan kita bisa terus saling berbagi kasih sayang, saling mendukung, dan menjalani
+            setiap langkah bersama dengan sepenuh hati.</p>
+        <p class="italic">I love you so much. Keep shining brightly!💕</p>
     </div>
 
     <!-- Burst Animation -->
@@ -387,28 +422,28 @@
 
         // Array Kalimat yang Akan Ditampilkan
         const messages = [
-            "Terima kasih telah menjadi bagian dari hidupku!",
-            "Semoga semua impianmu tercapai.",
-            "Hari ini adalah hari yang istimewa!",
-            "Semoga sehat selalu menyertaimu.",
-            "Nikmati setiap momen dalam hidupmu.",
-            "Semoga bahagia selalu!",
-            "Tetap semangat dan terus berkarya.",
-            "Selamat merayakan hari lahirmu!",
-            "Semoga sukses selalu menyertai.",
-            "Teruslah bersinar seperti bintang.",
-            "Semoga cinta selalu ada di sekitarmu.",
-            "Jangan pernah berhenti bermimpi.",
-            "Semoga hari-harimu penuh kebahagiaan.",
-            "Teruslah menjadi pribadi yang luar biasa.",
-            "Semoga tahun ini menjadi tahun terbaikmu.",
-            "Selamat menikmati hari spesialmu!",
-            "Semoga cinta dan kebahagiaan selalu bersamamu.",
-            "Tetap rendah hati dan selalu bersyukur.",
-            "Semoga hari-harimu selalu cerah.",
-            "Terima kasih atas segala kebaikanmu.",
-            "Semoga selalu diberkati dan dilindungi.",
-            "Selamat ulang tahun, semoga hari ini luar biasa!"
+            "Selamat ulang tahun, Adek! Mas seneng banget bisa ngerayain hari spesial Adek.",
+            "Setiap momen bareng Adek tuh selalu terasa spesial, Mas nggak pernah bosen.",
+            "Mas tuh beruntung banget bisa punya Adek yang luar biasa kayak gini.",
+            "Mas nggak pernah bisa berhenti senyum tiap inget betapa berharganya Adek buat Mas.",
+            "Semoga di tahun baru usia Adek, semua yang Adek impikan bisa tercapai, Mas selalu dukung.",
+            "Adek itu bener-bener bikin hidup Mas jadi lebih ceria dan penuh warna.",
+            "Mas cuma bisa senyum mikirin betapa berartinya Adek dalam hidup Mas.",
+            "Adek itu bukan cuma pacar, tapi sahabat terbaik yang Mas punya.",
+            "Hari ini tuh special banget buat Mas, karena bisa ngucapin selamat ulang tahun langsung ke Adek.",
+            "Adek selalu bisa bikin Mas ketawa, bahkan di saat-saat lagi capek sekalipun.",
+            "Semoga semua impian Adek tercapai tahun ini, Mas siap selalu di samping Adek.",
+            "Adek itu adalah orang yang selalu bikin hidup Mas lebih bahagia.",
+            "Mas nggak butuh hadiah mewah, karena punya Adek di hidup Mas udah lebih dari cukup.",
+            "Ulang tahun Adek ini cuma alasan buat Mas sayang sama Adek lebih dalam lagi.",
+            "Tiap kali Adek senyum, Mas ngerasa dunia ini jadi lebih indah.",
+            "Adek, Mas janji akan terus ada buat Adek, di segala kondisi, kapan pun itu.",
+            "Selamat ulang tahun, Adek! Semoga tahun ini kita makin bahagia bareng, ya.",
+            "Beneran deh, Adek itu selalu berhasil bikin Mas jatuh cinta lagi dan lagi.",
+            "Nggak ada yang lebih seru daripada jalanin hidup bareng Adek, Mas beneran bersyukur.",
+            "Setiap detik bareng Adek adalah kenangan yang nggak bakal Mas lupain.",
+            "Adek, Mas cuma mau bilang, Adek adalah hadiah terbaik dalam hidup Mas. Selamat ulang tahun!",
+            "💕"
         ];
 
         let currentMessageIndex = 0; // Indeks untuk kalimat saat ini
@@ -422,6 +457,8 @@
                 displayMessage(); // Menampilkan kalimat berbeda
                 if (clickCount === targetClicks) {
                     burstBalon();
+                    // Sembunyikan surat setelah mencapai 22 klik
+                    suratContainer.style.display = 'none'; // Menyembunyikan surat
                 }
             }
         });
